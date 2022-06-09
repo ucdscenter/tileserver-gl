@@ -33,6 +33,8 @@ RUN export DEBIAN_FRONTEND=noninteractive \
       libegl1 \
       xvfb \
       xauth \
+      wget \
+      ca-certificates \
   && apt-get -y --purge autoremove \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
@@ -45,6 +47,8 @@ ENV CHOKIDAR_INTERVAL=500
 
 VOLUME /data
 WORKDIR /data
+
+RUN wget -O file_name.mbtiles file_url
 
 EXPOSE 80
 
